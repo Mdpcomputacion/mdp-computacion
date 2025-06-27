@@ -1,292 +1,131 @@
-@ -1,291 +0,0 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MDP Computación | Cámaras de Seguridad</title>
+  <title>MDP Seguridad</title>
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-  <style>
-    :root {
-      --main-color: #111;
-      --accent-color: #28a745;
-      --bg-light: #f9f9f9;
-      --text-dark: #333;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; color: var(--text-dark); background: var(--bg-light); }
-
-    /* Header Hero */
-    header {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1400x400') no-repeat center/cover;
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-
-    .hero-cta {
-      background: var(--accent-color);
-      color: white;
-      padding: 12px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .hero-cta:hover {
-      background: #218838;
-    }
-
-    /* Sticky nav */
-    nav {
-      background: var(--main-color);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      padding: 10px 0;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 20px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--accent-color);
-    }
-
-    section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: var(--main-color);
-    }
-
-    .services, .reasons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .card {
-      flex: 1 1 280px;
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      color: var(--accent-color);
-    }
-
-    .card i {
-      font-size: 30px;
-      margin-bottom: 15px;
-      color: var(--main-color);
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
-
-    .gallery img {
-      width: 220px;
-      border-radius: 10px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    form input, form textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    form button {
-      background: #007BFF;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background: #0056b3;
-    }
-
-    footer {
-      background: var(--main-color);
-      color: #ccc;
-      text-align: center;
-      padding: 30px 10px;
-    }
-
-    footer .social-links a {
-      color: #ccc;
-      margin: 0 10px;
-      text-decoration: none;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-
-    footer .social-links a:hover {
-      color: var(--accent-color);
-    }
-
-    /* WhatsApp Floating */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 28px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media (max-width: 700px) {
-      .services, .reasons {
-        flex-direction: column;
-      }
-
-      header h1 { font-size: 1.8rem; }
-    }
-  </style>
 </head>
 <body>
+  <header class="hero">
+    <h1>MDP Computación</h1>
+    <p>Soluciones profesionales en videovigilancia para hogares y negocios</p>
+    <a href="#contacto" class="btn-principal">Solicitá tu presupuesto</a>
+  </header>
 
-<header>
-  <h1>MDP Computación</h1>
-  <p>Expertos en instalación de cámaras de seguridad para hogares y negocios</p>
-  <a href="#contacto" class="hero-cta">Solicitá tu presupuesto</a>
-</header>
+  <nav class="menu">
+    <a href="#servicios">Servicios</a>
+    <a href="#planes">Planes</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
-<nav>
-  <a href="#servicios">Servicios</a>
-  <a href="#porque">¿Por qué elegirnos?</a>
-  <a href="#galeria">Trabajos</a>
-  <a href="#contacto">Contacto</a>
-</nav>
-
-<section id="servicios">
-  <h2>Servicios</h2>
-  <div class="services">
-    <div class="card">
-      <i class="fas fa-tools"></i>
-      <h3>Instalación Profesional</h3>
-      <p>Montaje de cámaras en interiores y exteriores, con cableado oculto.</p>
+  <section id="servicios" class="contenedor">
+    <h2>Servicios</h2>
+    <div class="tarjetas">
+      <div class="card">
+        <i class="fas fa-tools"></i>
+        <h3>Instalación Profesional</h3>
+        <p>Montaje en interiores y exteriores con cableado prolijo.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-sync-alt"></i>
+        <h3>Mantenimiento</h3>
+        <p>Revisión y reparación de sistemas existentes.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-user-shield"></i>
+        <h3>Asesoría</h3>
+        <p>Elegimos el mejor sistema según tu espacio y presupuesto.</p>
+      </div>
     </div>
-    <div class="card">
-      <i class="fas fa-sync-alt"></i>
-      <h3>Mantenimiento</h3>
-      <p>Revisión, limpieza y reparación de sistemas existentes.</p>
+  </section>
+
+  <section id="planes" class="contenedor">
+    <h2>Planes y Promociones</h2>
+    <div class="tarjetas">
+      <div class="card">
+        <h3>Plan Básico</h3>
+        <p>2 cámaras + instalación<br><strong>$50.000</strong></p>
+      </div>
+      <div class="card">
+        <h3>Plan Hogar Seguro</h3>
+        <p>4 cámaras HD + DVR<br><strong>$90.000</strong></p>
+      </div>
+      <div class="card">
+        <h3>Plan Full</h3>
+        <p>8 cámaras HD + DVR + app móvil<br><strong>$150.000</strong></p>
+      </div>
     </div>
-    <div class="card">
-      <i class="fas fa-user-shield"></i>
-      <h3>Asesoría</h3>
-      <p>Te ayudamos a elegir el sistema ideal según tu necesidad y presupuesto.</p>
+  </section>
+
+  <section id="testimonios" class="contenedor">
+    <h2>Testimonios</h2>
+    <div class="tarjetas">
+      <div class="card">
+        <p>"Excelente atención y calidad de trabajo. Recomendados 100%"<br>— Juan G.</p>
+      </div>
+      <div class="card">
+        <p>"Instalaron todo en el día y quedó impecable."<br>— Romina T.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="porque">
-  <h2>¿Por qué elegirnos?</h2>
-  <div class="reasons">
-    <div class="card">
-      <i class="fas fa-award"></i>
-      <h3>Experiencia</h3>
-      <p>Más de 5 años instalando sistemas de videovigilancia.</p>
+  <section id="galeria" class="contenedor">
+    <h2>Trabajos Realizados</h2>
+    <div class="galeria">
+      <img src="images/cam (1).jpg" alt="Trabajo 1" />
+      <img src="images/cam (2).jpg" alt="Trabajo 2" />
+      <img src="images/cam (3).jpg" alt="Trabajo 3" />
+      <img src="images/cam (4).jpg" alt="Trabajo 4" />
+      <img src="images/cam (5).jpg" alt="Trabajo 5" />
+      <img src="images/cam (6).jpg" alt="Trabajo 6" />
+      <img src="images/cam (7).jpg" alt="Trabajo 7" />
+      <img src="images/cam (8).jpg" alt="Trabajo 8" />
+      <img src="images/cam (9).jpg" alt="Trabajo 9" />
+      <img src="images/cam (10).jpg" alt="Trabajo 10" />
+      <img src="images/cam (11).jpg" alt="Trabajo 11" />
+      <img src="images/cam (12).jpg" alt="Trabajo 12" />
+      <img src="images/cam (13).jpg" alt="Trabajo 13" />
+      <img src="images/cam (14).jpg" alt="Trabajo 14" />
+      <img src="images/cam (15).jpg" alt="Trabajo 15" />
+      <img src="images/cam (16).jpg" alt="Trabajo 16" />
+      <img src="images/cam (17).jpg" alt="Trabajo 17" />
+      <img src="images/cam (18).jpg" alt="Trabajo 18" />
+      <img src="images/cam (19).jpg" alt="Trabajo 19" />
+      <img src="images/cam (20).jpg" alt="Trabajo 20" />
+      <img src="images/cam (21).jpg" alt="Trabajo 21" />
+      <img src="images/cam (22).jpg" alt="Trabajo 22" />
+      <img src="images/cam (23).jpg" alt="Trabajo 23" />
+      <img src="images/cam (24).jpg" alt="Trabajo 24" />
     </div>
-    <div class="card">
-      <i class="fas fa-check-circle"></i>
-      <h3>Calidad</h3>
-      <p>Usamos solo equipos certificados y confiables.</p>
+  </section>
+
+  <section id="contacto" class="contenedor">
+    <h2>Contacto</h2>
+    <p>¿Listo para mejorar la seguridad de tu espacio?</p>
+    <form action="https://formspree.io/f/moqbdakw" method="POST">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo electrónico" required>
+      <textarea name="mensaje" rows="4" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MDP Computación</p>
+    <div class="social">
+      <a href="https://es-es.facebook.com/mdpcomputacion/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/mdpcomputacion/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/2235325483" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:mdpcomputacion@hotmail.com"><i class="fas fa-envelope"></i></a>
     </div>
-    <div class="card">
-      <i class="fas fa-headset"></i>
-      <h3>Soporte</h3>
-      <p>Atención rápida vía WhatsApp o llamada.</p>
-    </div>
-  </div>
-</section>
+  </footer>
 
-<section id="galeria">
-  <h2>Trabajos Realizados</h2>
-  <div class="gallery">
-    <img src="images/cam (5).jpg" alt="Trabajo 1">
-    <img src="images/cam (8).jpg" alt="Trabajo 2">
-    <img src="images/cam (14).jpg" alt="Trabajo 3">
-  </div>
-</section>
-
-<section id="contacto">
-  <h2>Contáctanos</h2>
-  <p style="text-align:center;">¿Listo para mejorar la seguridad de tu espacio?</p>
-  <form action="https://formspree.io/f/xblyadkk" method="POST">
-    <input type="text" name="nombre" placeholder="Tu nombre" required>
-    <input type="email" name="email" placeholder="Tu correo electrónico" required>
-    <textarea name="mensaje" rows="4" placeholder="Tu mensaje" required></textarea>
-    <button type="submit">Enviar mensaje</button>
-  </form>
-</section>
-
-<footer>
-  <p>&copy; 2025 MDP Computación. Todos los derechos reservados.</p>
-  <div class="social-links">
-    <a href="https://es-es.facebook.com/mdpcomputacion/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/mdpcomputacion/#" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/2235325483" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="mailto:mdpcomputacion@hotmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-</footer>
-
-<a href="https://wa.me/2235325483" class="whatsapp-float" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
+  <a href="https://wa.me/2235325483" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 </body>
 </html>
