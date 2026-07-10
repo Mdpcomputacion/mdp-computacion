@@ -3,127 +3,244 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MDP Seguridad</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>MDP Computación Seguridad | Cámaras en Mar del Plata</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
-    <h1>🔒 MDP Computación</h1>
-    <p>Instalación de cámaras de seguridad · Presupuesto sin cargo · Atención 24 hs</p>
-    <a href="https://wa.me/5492235325483" class="btn-principal" target="_blank">💬 Pedí tu presupuesto</a>
-  </header>
 
-  <nav class="menu">
-    <a href="#servicios">Servicios</a>
-    <a href="#planes">Planes</a>
-    <a href="#testimonios">Testimonios</a>
-    <a href="#galeria">Galería</a>
-    <a href="#contacto">Contacto</a>
+  <!-- Barra de Navegación Fija -->
+  <nav class="navbar">
+    <div class="nav-logo">🔒 MDP Computación · Seguridad</div>
+    <div class="menu-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#kits">Kits Destacados</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto" class="btn-nav">Presupuesto Gratis</a>
+    </div>
   </nav>
 
+  <!-- Sección Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="badge">Atención 24 hs · Mar del Plata</span>
+      <h1>Protegá lo que más querés con profesionales</h1>
+      <p>Venta con instalación incluida de cámaras de seguridad para hogares, comercios y empresas. Monitoreá todo en tiempo real desde tu celular.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5492235325483?text=Hola!%20Quiero%20pedir%20un%20presupuesto%20para%20cámaras%20de%20seguridad." class="btn-principal" target="_blank">
+          <i class="fab fa-whatsapp"></i> Cotizar por WhatsApp
+        </a>
+        <a href="#kits" class="btn-secundario">Ver Kits</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Características Rápidas -->
+  <section class="features">
+    <div class="feature-item">
+      <i class="fas fa-file-invoice-dollar"></i>
+      <h3>Presupuesto sin cargo</h3>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>App en tu celular</h3>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Garantía de instalación</h3>
+    </div>
+  </section>
+
+  <!-- Faja de Marcas Profesionales (¡Actualizada!) -->
+  <section class="brands-bar">
+    <p>Trabajamos con tecnología de primera línea:</p>
+    <div class="brands-container">
+      <span><i class="fas fa-video"></i> HIKVISION</span>
+      <span><i class="fas fa-server"></i> DAHUA</span>
+      <span><i class="fas fa-home"></i> EZVIZ</span>
+      <span><i class="fas fa-bolt"></i> IMOU</span>
+    </div>
+  </section>
+
+  <!-- Servicios -->
   <section id="servicios" class="contenedor">
-    <h2>Servicios</h2>
+    <div class="section-title">
+      <h2>¿Qué hacemos?</h2>
+      <p>Soluciones integrales de seguridad tecnológica</p>
+    </div>
     <div class="tarjetas">
       <div class="card">
-        <i class="fas fa-tools"></i>
+        <div class="icon-box"><i class="fas fa-tools"></i></div>
         <h3>Instalación Profesional</h3>
-        <p>Montaje prolijo y rápido en interiores y exteriores.</p>
+        <p>Montaje prolijo, rápido y sin cables a la vista. Configuración completa del sistema.</p>
       </div>
       <div class="card">
-        <i class="fas fa-sync-alt"></i>
-        <h3>Mantenimiento</h3>
-        <p>Revisión, reparación y actualización de sistemas.</p>
+        <div class="icon-box"><i class="fas fa-sync-alt"></i></div>
+        <h3>Mantenimiento Técnico</h3>
+        <p>Revisión, reparación de fallas y actualización de cámaras antiguas a sistemas HD.</p>
       </div>
       <div class="card">
-        <i class="fas fa-user-shield"></i>
-        <h3>Asesoría</h3>
-        <p>Te guiamos para elegir la mejor solución según tu espacio.</p>
+        <div class="icon-box"><i class="fas fa-user-shield"></i></div>
+        <h3>Asesoramiento en Obra</h3>
+        <p>Analizamos los puntos vulnerables de tu propiedad para elegir la mejor ubicación.</p>
       </div>
     </div>
   </section>
 
-  <section id="planes" class="contenedor dark">
-    <h2>Planes y Promociones</h2>
-    <div class="tarjetas">
-      <div class="card">
-        <h3>Plan Básico</h3>
-        <p>2 cámaras + instalación<br><strong>Desde $150.000</strong></p>
+  <!-- Sección Kits -->
+  <section id="kits" class="contenedor dark">
+    <div class="section-title">
+      <h2>Kits con Instalación Incluida</h2>
+      <p>Equipos listos para proteger tu espacio y configurados en tu celular</p>
+    </div>
+    <div class="tarjetas-planes">
+      
+      <!-- Kit 1: WiFi -->
+      <div class="card-plan">
+        <span class="tag-tecnologia">Inalámbrico Wi-Fi</span>
+        <h3>Kit Smart Wi-Fi</h3>
+        <span class="plan-destinatario">Ideal Departamentos y Casas Chicas</span>
+        <div class="precio"><span>Cotizar Ahora</span></div>
+        <ul>
+          <li><i class="fas fa-check"></i> Cámaras Robotizadas Wi-Fi</li>
+          <li><i class="fas fa-check"></i> Almacenamiento MicroSD de alta velocidad</li>
+          <li><i class="fas fa-check"></i> Audio bidireccional (Habla y escucha)</li>
+          <li><i class="fas fa-check"></i> Instalación rápida sin romper paredes</li>
+          <li><i class="fas fa-check"></i> Alertas directas al celular por movimiento</li>
+        </ul>
+        <a href="https://wa.me/5492235325483?text=Hola!%20Me%20interesa%20el%20Kit%20Smart%20Wi-Fi%20inalámbrico." class="btn-plan" target="_blank">
+          <i class="fab fa-whatsapp"></i> Solicitar Presupuesto
+        </a>
       </div>
-      <div class="card">
-        <h3>Plan Hogar Seguro</h3>
-        <p>4 cámaras HD + DVR<br><strong>Desde $350.000</strong></p>
+
+      <!-- Kit 2: Hogar Seguro (Destacado) -->
+      <div class="card-plan destacado">
+        <div class="recomendado">Más Solicitado</div>
+        <span class="tag-tecnologia">Ultra HD Cableado</span>
+        <h3>Kit Hogar Seguro</h3>
+        <span class="plan-destinatario">Ideal Casas Medianas y Comercios</span>
+        <div class="precio"><span>Cotizar Ahora</span></div>
+        <ul>
+          <li><i class="fas fa-check"></i> 4 Cámaras HD Exterior (Resistentes al agua)</li>
+          <li><i class="fas fa-check"></i> Grabador DVR + Disco Alta Capacidad</li>
+          <li><i class="fas fa-check"></i> Visión Nocturna infrarroja de largo alcance</li>
+          <li><i class="fas fa-check"></i> Instalación cableada oculta y prolija</li>
+          <li><i class="fas fa-check"></i> Configuración en los celulares de la familia</li>
+        </ul>
+        <a href="https://wa.me/5492235325483?text=Hola!%20Quiero%20cotizar%20el%20Kit%20Hogar%20Seguro%20de%204%20cámaras." class="btn-plan" target="_blank">
+          <i class="fab fa-whatsapp"></i> Solicitar Presupuesto
+        </a>
       </div>
-      <div class="card">
-        <h3>Plan Full</h3>
-        <p>8 cámaras HD + DVR + App móvil<br><strong>Consultar</strong></p>
+
+      <!-- Kit 3: Full Empresa -->
+      <div class="card-plan">
+        <span class="tag-tecnologia">Sistema Comercial</span>
+        <h3>Kit Monitoreo Full</h3>
+        <span class="plan-destinatario">Consorcios, Depósitos y Pymes</span>
+        <div class="precio"><span>Cotizar Ahora</span></div>
+        <ul>
+          <li><i class="fas fa-check"></i> 8 Cámaras HD o superiores (Sistemas Mixtos)</li>
+          <li><i class="fas fa-check"></i> Grabación continua 24/7 de seguridad</li>
+          <li><i class="fas fa-check"></i> Sensor perimetral con detección de humanos</li>
+          <li><i class="fas fa-check"></i> Soporte técnico prioritario MDP</li>
+          <li><i class="fas fa-check"></i> Planificación técnica y relevamiento previo</li>
+        </ul>
+        <a href="https://wa.me/5492235325483?text=Hola!%20Necesito%20un%20presupuesto%20para%20un%20Kit%20de%20Monitoreo%20Full%20de%208%20o%20más%20cámaras." class="btn-plan" target="_blank">
+          <i class="fab fa-whatsapp"></i> Solicitar Presupuesto
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="testimonios" class="contenedor">
-    <h2>Testimonios</h2>
-    <div class="tarjetas">
-      <div class="card">
-        <p>"Excelente atención y calidad de trabajo. Recomendados 100%"<br>— Juan G.</p>
+  <!-- Testimonios -->
+  <section class="contenedor">
+    <div class="section-title">
+      <h2>¿Qué dicen nuestros clientes?</h2>
+    </div>
+    <div class="tarjetas testimonios">
+      <div class="card-testimonio">
+        <div class="estrellas">⭐⭐⭐⭐⭐</div>
+        <p>"Excelente atención y calidad de trabajo. Súper prolijos con los cables, los súper recomiendo en MDQ."</p>
+        <h4>— Juan G.</h4>
       </div>
-      <div class="card">
-        <p>"Instalaron todo en el día y quedó impecable."<br>— Romina T.</p>
+      <div class="card-testimonio">
+        <div class="estrellas">⭐⭐⭐⭐⭐</div>
+        <p>"Instalaron las cámaras Wi-Fi en mi local rapidísimo. Me explicaron bárbaro cómo ver todo desde la app."</p>
+        <h4>— Romina T.</h4>
       </div>
     </div>
   </section>
 
-  <section id="galeria" class="contenedor galeria">
-    <h2>Trabajos Realizados</h2>
-    <img src="images/cam (1).jpg" alt="Trabajo 1" />
-<img src="images/cam (2).jpg" alt="Trabajo 2" />
-<img src="images/cam (3).jpg" alt="Trabajo 3" />
-<img src="images/cam (4).jpg" alt="Trabajo 4" />
-<img src="images/cam (5).jpg" alt="Trabajo 5" />
-<img src="images/cam (6).jpg" alt="Trabajo 6" />
-<img src="images/cam (7).jpg" alt="Trabajo 7" />
-<img src="images/cam (8).jpg" alt="Trabajo 8" />
-<img src="images/cam (9).jpg" alt="Trabajo 9" />
-<img src="images/cam (10).jpg" alt="Trabajo 10" />
-<img src="images/cam (11).jpg" alt="Trabajo 11" />
-<img src="images/cam (12).jpg" alt="Trabajo 12" />
-<img src="images/cam (13).jpg" alt="Trabajo 13" />
-<img src="images/cam (14).jpg" alt="Trabajo 14" />
-<img src="images/cam (15).jpg" alt="Trabajo 15" />
-<img src="images/cam (16).jpg" alt="Trabajo 16" />
-<img src="images/cam (17).jpg" alt="Trabajo 17" />
-<img src="images/cam (18).jpg" alt="Trabajo 18" />
-<img src="images/cam (19).jpg" alt="Trabajo 19" />
-<img src="images/cam (20).jpg" alt="Trabajo 20" />
-<img src="images/cam (21).jpg" alt="Trabajo 21" />
-<img src="images/cam (22).jpg" alt="Trabajo 22" />
-<img src="images/cam (23).jpg" alt="Trabajo 23" />
-<img src="images/cam (24).jpg" alt="Trabajo 24" />
+  <!-- Galería Recortada (Las mejores 6) -->
+  <section id="galeria" class="contenedor galeria-section">
+    <div class="section-title">
+      <h2>Nuestros Trabajos Realizados</h2>
+      <p>Fotos reales de instalaciones profesionales en Mar del Plata</p>
+    </div>
+    <div class="galeria-grid">
+      <img src="images/cam (1).jpg" alt="Instalación MDP Computación" />
+      <img src="images/cam (2).jpg" alt="Instalación MDP Computación" />
+      <img src="images/cam (3).jpg" alt="Instalación MDP Computación" />
+      <img src="images/cam (4).jpg" alt="Instalación MDP Computación" />
+      <img src="images/cam (5).jpg" alt="Instalación MDP Computación" />
+      <img src="images/cam (6).jpg" alt="Instalación MDP Computación" />
+    </div>
+    <!-- Botón para ir a la galería completa -->
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="galeria.html" class="btn-secundario" style="border-color: var(--amarillo-seguridad); color: #fff;">Ver Galería Completa (24 Fotos) →</a>
+    </div>
   </section>
 
-  <section id="contacto" class="contenedor">
-    <h2>Contacto</h2>
-    <p>¿Listo para mejorar la seguridad de tu espacio?</p>
-    <form action="https://formspree.io/f/moqbdakw" method="POST">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu correo electrónico" required>
-      <textarea name="mensaje" rows="4" placeholder="Tu mensaje" required></textarea>
-      <button type="submit">Enviar mensaje</button>
-    </form>
+  <!-- Contacto -->
+  <section id="contacto" class="contenedor contacto-section">
+    <div class="contacto-wrapper">
+      <div class="contacto-info">
+        <h2>¿Listo para proteger tu propiedad?</h2>
+        <p>Dejanos tus datos y te asesoramos sin cargo. También podés escribirnos directo por nuestras redes sociales.</p>
+        <div class="info-links">
+          <a href="mailto:mdpcomputacion@hotmail.com"><i class="fas fa-envelope"></i> mdpcomputacion@hotmail.com</a>
+          <a href="https://wa.me/5492235325483"><i class="fab fa-whatsapp"></i> 223 532-5483</a>
+        </div>
+      </div>
+      
+      <div class="contacto-form">
+        <form action="https://formspree.io/f/moqbdakw" method="POST">
+          <div class="form-group">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Tu correo electrónico" required>
+          </div>
+          <div class="form-group">
+            <textarea name="mensaje" rows="4" placeholder="¿Cuántas cámaras estás necesitando y en qué zona estás?" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Enviar Solicitud</button>
+        </form>
+      </div>
+    </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 MDP Computación</p>
-    <div class="social">
-      <a href="https://es-es.facebook.com/mdpcomputacion/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/mdpcomputacion/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://wa.me/2235325483" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:mdpcomputacion@hotmail.com"><i class="fas fa-envelope"></i></a>
+    <div class="footer-content">
+      <p>&copy; 2026 MDP Computación · Seguridad · Instalación de Cámaras</p>
+      <div class="social">
+        <a href="https://es-es.facebook.com/mdpcomputacion/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/mdpcomputacion/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5492235325483" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/2235325483" class="whatsapp-float" target="_blank">
+  <!-- Botón Flotante -->
+  <a href="https://wa.me/5492235325483" class="whatsapp-float" target="_blank" title="Escribinos por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
+
 </body>
 </html>
