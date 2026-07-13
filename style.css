@@ -594,3 +594,25 @@ footer .social a:hover {
     text-align: center;
   }
 }
+/* ==========================================================================
+   ESTILOS SECCIÓN DE REDES COMBINADAS
+   ========================================================================== */
+.redes-box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.red-modulo {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: center;
+}
