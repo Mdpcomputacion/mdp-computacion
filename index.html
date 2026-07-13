@@ -20,7 +20,7 @@
     <div class="menu-links">
       <a href="#servicios">Servicios</a>
       <a href="#kits">Kits Destacados</a>
-      <a href="#galeria">Galería</a>
+      <a href="#nuestras-redes">Nuestras Redes</a>
       <a href="#contacto" class="btn-nav">Presupuesto Gratis</a>
     </div>
   </nav>
@@ -29,7 +29,7 @@
   <header class="hero">
     <div class="hero-content">
       <span class="badge">Atención 24 hs · Mar del Plata</span>
-      <h1>Protegá lo que más querés con profesionales</h1>
+      <h1>Protegé lo que más querés con profesionales</h1>
       <p>Venta con instalación incluida de cámaras de seguridad para hogares, comercios y empresas. Monitoreá todo en tiempo real desde tu celular.</p>
       <div class="hero-btns">
         <a href="https://wa.me/5492235325483?text=Hola!%20Quiero%20pedir%20un%20presupuesto%20para%20cámaras%20de%20seguridad." class="btn-principal" target="_blank">
@@ -56,7 +56,7 @@
     </div>
   </section>
 
-  <!-- Faja de Marcas Profesionales (¡Actualizada!) -->
+  <!-- Faja de Marcas Profesionales -->
   <section class="brands-bar">
     <p>Trabajamos con tecnología de primera línea:</p>
     <div class="brands-container">
@@ -157,42 +157,41 @@
     </div>
   </section>
 
-  <!-- Testimonios -->
-  <section class="contenedor">
+  <!-- SECCIÓN ACTUALIZADA: Módulos Oficiales de Facebook e Instagram Lado a Lado -->
+  <section id="nuestras-redes" class="contenedor">
     <div class="section-title">
-      <h2>¿Qué dicen nuestros clientes?</h2>
+      <h2>Nuestros Trabajos en Redes</h2>
+      <p>Seguinos y dale un vistazo a nuestras últimas novedades</p>
     </div>
-    <div class="tarjetas testimonios">
-      <div class="card-testimonio">
-        <div class="estrellas">⭐⭐⭐⭐⭐</div>
-        <p>"Excelente atención y calidad de trabajo. Súper prolijos con los cables, los súper recomiendo en MDQ."</p>
-        <h4>— Juan G.</h4>
+    
+    <!-- Contenedor Flexbox/Grid para que queden emparejados -->
+    <div class="redes-box-container">
+      
+      <!-- Bloque Facebook -->
+      <div class="red-modulo">
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
+        
+        <div class="fb-page" 
+          data-href="https://www.facebook.com/mdpcomputacion/" 
+          data-tabs="timeline" 
+          data-width="400" 
+          data-height="450" 
+          data-small-header="false" 
+          data-adapt-container-width="true" 
+          data-hide-cover="false" 
+          data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/mdpcomputacion/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/mdpcomputacion/">MDP Computación</a>
+          </blockquote>
+        </div>
       </div>
-      <div class="card-testimonio">
-        <div class="estrellas">⭐⭐⭐⭐⭐</div>
-        <p>"Instalaron las cámaras Wi-Fi en mi local rapidísimo. Me explicaron bárbaro cómo ver todo desde la app."</p>
-        <h4>— Romina T.</h4>
-      </div>
-    </div>
-  </section>
 
-  <!-- Galería Recortada (Las mejores 6) -->
-  <section id="galeria" class="contenedor galeria-section">
-    <div class="section-title">
-      <h2>Nuestros Trabajos Realizados</h2>
-      <p>Fotos reales de instalaciones profesionales en Mar del Plata</p>
-    </div>
-    <div class="galeria-grid">
-      <img src="images/cam (1).jpg" alt="Instalación MDP Computación" />
-      <img src="images/cam (2).jpg" alt="Instalación MDP Computación" />
-      <img src="images/cam (3).jpg" alt="Instalación MDP Computación" />
-      <img src="images/cam (4).jpg" alt="Instalación MDP Computación" />
-      <img src="images/cam (5).jpg" alt="Instalación MDP Computación" />
-      <img src="images/cam (6).jpg" alt="Instalación MDP Computación" />
-    </div>
-    <!-- Botón para ir a la galería completa -->
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="galeria.html" class="btn-secundario" style="border-color: var(--amarillo-seguridad); color: #fff;">Ver Galería Completa (24 Fotos) →</a>
+      <!-- Bloque Instagram (Utiliza el Embed estándar e interactivo de perfil de IG) -->
+      <div class="red-modulo">
+        <iframe src="https://www.instagram.com/mdpcomputacion/embed" width="100%" height="450" frameborder="0" scrolling="no" allowtransparency="true" style="border: none; border-radius: 8px; background: #fff;"></iframe>
+      </div>
+
     </div>
   </section>
 
