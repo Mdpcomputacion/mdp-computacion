@@ -3,243 +3,979 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MDP Computación Seguridad | Cámaras en Mar del Plata</title>
-  <!-- Google Fonts -->
+  <title>Pedidos y Presupuestos | MDP Computación · Seguridad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --bg-oscuro: #0f172a;
+      --bg-secundario: #111827;
+      --bg-tarjetas: #1f2937;
+      --amarillo: #f59e0b;
+      --amarillo-hover: #d97706;
+      --verde-wa: #25d366;
+      --verde-wa-hover: #1ebe5d;
+      --texto-blanco: #f9fafb;
+      --texto-gris: #9ca3af;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-oscuro);
+      color: var(--texto-blanco);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================================
+       BANNER SUPERIOR DE MARCA (MDP COMPUTACIÓN · SEGURIDAD)
+       ========================================================================== */
+    .banner-empresa {
+      background: 
+        radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 15% 80%, rgba(37, 211, 102, 0.08) 0%, transparent 40%),
+        linear-gradient(135deg, #090d16 0%, #111827 55%, #1e293b 100%);
+      border-bottom: 3px solid var(--amarillo);
+      padding: 25px 20px 42px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .banner-empresa::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .banner-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .banner-top-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 26px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.85rem;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .ubicacion-tag {
+      color: var(--texto-gris);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ubicacion-tag i {
+      color: var(--amarillo);
+    }
+
+    .btn-wa-top {
+      background-color: rgba(37, 211, 102, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      padding: 6px 14px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-wa-top:hover {
+      background-color: var(--verde-wa);
+      color: #fff;
+    }
+
+    .marca-identidad {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo-escudo {
+      width: 68px;
+      height: 68px;
+      background: linear-gradient(135deg, var(--amarillo), #d97706);
+      color: #090d16;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+      flex-shrink: 0;
+    }
+
+    .marca-textos {
+      text-align: left;
+    }
+
+    .marca-textos .nombre-principal {
+      font-size: 2.3rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .marca-textos .nombre-principal span {
+      color: var(--amarillo);
+    }
+
+    .marca-textos .sub-rubro {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .banner-bajada {
+      max-width: 680px;
+      color: var(--texto-gris);
+      font-size: 0.98rem;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .badge-instalacion {
+      background-color: rgba(37, 211, 102, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      padding: 7px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ==========================================================================
+       CONTENEDOR PRINCIPAL: OPCIONES + FORMULARIO
+       ========================================================================== */
+    .contenedor-principal {
+      max-width: 1050px;
+      width: 100%;
+      margin: 35px auto 50px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 30px;
+      align-items: start;
+      flex-grow: 1;
+    }
+
+    .opciones-columna {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .card-sistema {
+      background-color: var(--bg-tarjetas);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .card-sistema.activo {
+      border: 2px solid var(--amarillo);
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.12);
+    }
+
+    .sistema-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .sistema-icono {
+      width: 68px;
+      height: 68px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.05));
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--amarillo);
+      flex-shrink: 0;
+    }
+
+    .sistema-titulo h2 {
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .sistema-titulo span {
+      font-size: 0.8rem;
+      color: #4ade80;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .sistema-desc {
+      color: var(--texto-gris);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .control-fila {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--bg-secundario);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      gap: 10px;
+    }
+
+    .control-fila:last-child {
+      margin-bottom: 0;
+    }
+
+    .control-fila label {
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .selector-canales {
+      background-color: var(--bg-tarjetas);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .selector-canales:focus {
+      outline: none;
+      border-color: var(--amarillo);
+    }
+
+    .contador-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-menos, .btn-mas {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1.15rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.1s, background-color 0.2s;
+    }
+
+    .btn-menos {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .btn-menos:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-mas {
+      background-color: var(--amarillo);
+      color: #000;
+    }
+
+    .btn-mas:hover {
+      background-color: var(--amarillo-hover);
+    }
+
+    .numero-cantidad {
+      font-size: 1.2rem;
+      font-weight: 700;
+      min-width: 26px;
+      text-align: center;
+    }
+
+    /* Botón rápido dentro de la tarjeta para bajar al formulario */
+    .btn-ir-formulario-card {
+      display: none;
+      width: 100%;
+      margin-top: 15px;
+      background-color: rgba(245, 158, 11, 0.15);
+      color: var(--amarillo);
+      border: 1px solid var(--amarillo);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .btn-ir-formulario-card:hover {
+      background-color: var(--amarillo);
+      color: #000;
+    }
+
+    .card-sistema.activo .btn-ir-formulario-card {
+      display: block;
+    }
+
+    /* ==========================================================================
+       COLUMNA DERECHA: FORMULARIO DE CONSULTA
+       ========================================================================== */
+    .panel-formulario {
+      background-color: var(--bg-secundario);
+      border: 2px solid var(--amarillo);
+      border-radius: 12px;
+      padding: 28px;
+      position: sticky;
+      top: 25px;
+      scroll-margin-top: 20px;
+    }
+
+    .panel-formulario h3 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .subtitulo-form {
+      font-size: 0.85rem;
+      color: var(--texto-gris);
+      margin-bottom: 20px;
+    }
+
+    .resumen-seleccion {
+      background-color: var(--bg-tarjetas);
+      border-left: 4px solid var(--amarillo);
+      padding: 12px 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .resumen-seleccion strong {
+      display: block;
+      color: var(--amarillo);
+      margin-bottom: 4px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .campo {
+      margin-bottom: 15px;
+    }
+
+    .campo label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--texto-gris);
+      margin-bottom: 5px;
+    }
+
+    .campo input, .campo select, .campo textarea {
+      width: 100%;
+      padding: 11px 13px;
+      background-color: var(--bg-tarjetas);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.92rem;
+    }
+
+    .campo input:focus, .campo select:focus, .campo textarea:focus {
+      outline: none;
+      border-color: var(--amarillo);
+    }
+
+    .btn-enviar-consulta {
+      width: 100%;
+      background-color: var(--verde-wa);
+      color: #fff;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-enviar-consulta:hover {
+      background-color: var(--verde-wa-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       BARRA FLOTANTE INFERIOR PARA CELULARES (STICKY BAR)
+       ========================================================================== */
+    .barra-flotante-movil {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #090d16;
+      border-top: 2px solid var(--amarillo);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      z-index: 2000;
+      box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.65);
+      transform: translateY(110%);
+      transition: transform 0.3s ease;
+    }
+
+    .barra-flotante-movil.visible {
+      transform: translateY(0);
+    }
+
+    .barra-info-texto {
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    .barra-info-texto strong {
+      display: block;
+      color: var(--amarillo);
+      font-size: 0.95rem;
+    }
+
+    .barra-info-texto span {
+      color: var(--texto-gris);
+      font-size: 0.78rem;
+    }
+
+    .btn-completar-datos {
+      background-color: var(--amarillo);
+      color: #000;
+      border: none;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    /* ==========================================================================
+       SECTOR REDES SOCIALES Y CANAL DE WHATSAPP (FOOTER)
+       ========================================================================== */
+    .redes-footer {
+      background-color: var(--bg-secundario);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 40px 20px 85px; /* Espacio extra abajo para que la barra flotante no tape el texto */
+      text-align: center;
+    }
+
+    .redes-footer h3 {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+      color: var(--texto-blanco);
+    }
+
+    .redes-footer p {
+      color: var(--texto-gris);
+      font-size: 0.9rem;
+      margin-bottom: 22px;
+    }
+
+    .redes-botones {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      max-width: 850px;
+      margin: 0 auto 28px;
+    }
+
+    .btn-social {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .btn-social:hover {
+      transform: translateY(-3px);
+      opacity: 0.92;
+    }
+
+    .btn-canal-wa {
+      background-color: #128c7e;
+      border: 1px solid #25d366;
+    }
+
+    .btn-fb {
+      background-color: #1877f2;
+    }
+
+    .btn-ig {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+
+    .btn-wa-directo {
+      background-color: var(--verde-wa);
+    }
+
+    .copyright-texto {
+      font-size: 0.82rem;
+      color: var(--texto-gris);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 20px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE (CELULARES Y TABLETS)
+       ========================================================================== */
+    @media (min-width: 851px) {
+      /* En PC el formulario ya está visible al costado, ocultamos la barra móvil */
+      .barra-flotante-movil {
+        display: none !important;
+      }
+      .redes-footer {
+        padding-bottom: 35px;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .contenedor-principal {
+        grid-template-columns: 1fr;
+      }
+      .panel-formulario {
+        position: static;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .banner-top-bar {
+        justify-content: center;
+        text-align: center;
+      }
+      .marca-textos {
+        text-align: center;
+      }
+      .marca-textos .nombre-principal {
+        font-size: 1.65rem;
+      }
+      .marca-textos .sub-rubro {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+      }
+      .btn-social {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Barra de Navegación Fija -->
-  <nav class="navbar">
-    <div class="nav-logo">🔒 MDP Computación · Seguridad</div>
-    <div class="menu-links">
-      <a href="#servicios">Servicios</a>
-      <a href="#kits">Kits Destacados</a>
-      <a href="#nuestras-redes">Nuestras Redes</a>
-      <a href="#contacto" class="btn-nav">Presupuesto Gratis</a>
-    </div>
-  </nav>
-
-  <!-- Sección Hero -->
-  <header class="hero">
-    <div class="hero-content">
-      <span class="badge">Atención 24 hs · Mar del Plata</span>
-      <h1>Protegé lo que más querés con profesionales</h1>
-      <p>Venta con instalación incluida de cámaras de seguridad para hogares, comercios y empresas. Monitoreá todo en tiempo real desde tu celular.</p>
-      <div class="hero-btns">
-        <a href="https://wa.me/5492235325483?text=Hola!%20Quiero%20pedir%20un%20presupuesto%20para%20cámaras%20de%20seguridad." class="btn-principal" target="_blank">
-          <i class="fab fa-whatsapp"></i> Cotizar por WhatsApp
+  <!-- Banner Principal de la Empresa -->
+  <header class="banner-empresa">
+    <div class="banner-inner">
+      
+      <!-- Barra superior de contacto rápido -->
+      <div class="banner-top-bar">
+        <span class="ubicacion-tag">
+          <i class="fas fa-map-marker-alt"></i> Mar del Plata · Atención a Hogares y Comercios
+        </span>
+        <a href="https://wa.me/5492235325483" target="_blank" class="btn-wa-top">
+          <i class="fab fa-whatsapp"></i> 223-5325483
         </a>
-        <a href="#kits" class="btn-secundario">Ver Kits</a>
       </div>
+
+      <!-- Bloque Central de Marca -->
+      <div class="marca-identidad">
+        <div class="logo-escudo">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="marca-textos">
+          <div class="nombre-principal">MDP <span>Computación</span></div>
+          <div class="sub-rubro">Sistemas de Seguridad &amp; Videovigilancia</div>
+        </div>
+      </div>
+
+      <p class="banner-bajada">
+        Seleccioná el sistema que necesitás, indicanos tu zona y disponibilidad horaria, y recibí tu presupuesto armado al instante.
+      </p>
+
+      <div class="badge-instalacion">
+        <i class="fas fa-check-circle"></i> Venta con instalación profesional y configuración incluida
+      </div>
+
     </div>
   </header>
 
-  <!-- Características Rápidas -->
-  <section class="features">
-    <div class="feature-item">
-      <i class="fas fa-file-invoice-dollar"></i>
-      <h3>Presupuesto sin cargo</h3>
-    </div>
-    <div class="feature-item">
-      <i class="fas fa-mobile-alt"></i>
-      <h3>App en tu celular</h3>
-    </div>
-    <div class="feature-item">
-      <i class="fas fa-shield-alt"></i>
-      <h3>Garantía de instalación</h3>
-    </div>
-  </section>
+  <!-- Contenedor Principal -->
+  <main class="contenedor-principal">
 
-  <!-- Faja de Marcas Profesionales -->
-  <section class="brands-bar">
-    <p>Trabajamos con tecnología de primera línea:</p>
-    <div class="brands-container">
-      <span><i class="fas fa-video"></i> HIKVISION</span>
-      <span><i class="fas fa-server"></i> DAHUA</span>
-      <span><i class="fas fa-home"></i> EZVIZ</span>
-      <span><i class="fas fa-bolt"></i> IMOU</span>
-    </div>
-  </section>
-
-  <!-- Servicios -->
-  <section id="servicios" class="contenedor">
-    <div class="section-title">
-      <h2>¿Qué hacemos?</h2>
-      <p>Soluciones integrales de seguridad tecnológica</p>
-    </div>
-    <div class="tarjetas">
-      <div class="card">
-        <div class="icon-box"><i class="fas fa-tools"></i></div>
-        <h3>Instalación Profesional</h3>
-        <p>Montaje prolijo, rápido y sin cables a la vista. Configuración completa del sistema.</p>
-      </div>
-      <div class="card">
-        <div class="icon-box"><i class="fas fa-sync-alt"></i></div>
-        <h3>Mantenimiento Técnico</h3>
-        <p>Revisión, reparación de fallas y actualización de cámaras antiguas a sistemas HD.</p>
-      </div>
-      <div class="card">
-        <div class="icon-box"><i class="fas fa-user-shield"></i></div>
-        <h3>Asesoramiento en Obra</h3>
-        <p>Analizamos los puntos vulnerables de tu propiedad para elegir la mejor ubicación.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección Kits -->
-  <section id="kits" class="contenedor dark">
-    <div class="section-title">
-      <h2>Kits con Instalación Incluida</h2>
-      <p>Equipos listos para proteger tu espacio y configurados en tu celular</p>
-    </div>
-    <div class="tarjetas-planes">
+    <!-- Columna Izquierda: 2 Secciones Claras (Wi-Fi y DVR) -->
+    <section class="opciones-columna">
       
-      <!-- Kit 1: WiFi -->
-      <div class="card-plan">
-        <span class="tag-tecnologia">Inalámbrico Wi-Fi</span>
-        <h3>Kit Smart Wi-Fi</h3>
-        <span class="plan-destinatario">Ideal Departamentos y Casas Chicas</span>
-        <div class="precio"><span>Cotizar Ahora</span></div>
-        <ul>
-          <li><i class="fas fa-check"></i> Cámaras Robotizadas Wi-Fi</li>
-          <li><i class="fas fa-check"></i> Almacenamiento MicroSD de alta velocidad</li>
-          <li><i class="fas fa-check"></i> Audio bidireccional (Habla y escucha)</li>
-          <li><i class="fas fa-check"></i> Instalación rápida sin romper paredes</li>
-          <li><i class="fas fa-check"></i> Alertas directas al celular por movimiento</li>
-        </ul>
-        <a href="https://wa.me/5492235325483?text=Hola!%20Me%20interesa%20el%20Kit%20Smart%20Wi-Fi%20inalámbrico." class="btn-plan" target="_blank">
-          <i class="fab fa-whatsapp"></i> Solicitar Presupuesto
-        </a>
-      </div>
-
-      <!-- Kit 2: Hogar Seguro (Destacado) -->
-      <div class="card-plan destacado">
-        <div class="recomendado">Más Solicitado</div>
-        <span class="tag-tecnologia">Ultra HD Cableado</span>
-        <h3>Kit Hogar Seguro</h3>
-        <span class="plan-destinatario">Ideal Casas Medianas y Comercios</span>
-        <div class="precio"><span>Cotizar Ahora</span></div>
-        <ul>
-          <li><i class="fas fa-check"></i> 4 Cámaras HD Exterior (Resistentes al agua)</li>
-          <li><i class="fas fa-check"></i> Grabador DVR + Disco Alta Capacidad</li>
-          <li><i class="fas fa-check"></i> Visión Nocturna infrarroja de largo alcance</li>
-          <li><i class="fas fa-check"></i> Instalación cableada oculta y prolija</li>
-          <li><i class="fas fa-check"></i> Configuración en los celulares de la familia</li>
-        </ul>
-        <a href="https://wa.me/5492235325483?text=Hola!%20Quiero%20cotizar%20el%20Kit%20Hogar%20Seguro%20de%204%20cámaras." class="btn-plan" target="_blank">
-          <i class="fab fa-whatsapp"></i> Solicitar Presupuesto
-        </a>
-      </div>
-
-      <!-- Kit 3: Full Empresa -->
-      <div class="card-plan">
-        <span class="tag-tecnologia">Sistema Comercial</span>
-        <h3>Kit Monitoreo Full</h3>
-        <span class="plan-destinatario">Consorcios, Depósitos y Pymes</span>
-        <div class="precio"><span>Cotizar Ahora</span></div>
-        <ul>
-          <li><i class="fas fa-check"></i> 8 Cámaras HD o superiores (Sistemas Mixtos)</li>
-          <li><i class="fas fa-check"></i> Grabación continua 24/7 de seguridad</li>
-          <li><i class="fas fa-check"></i> Sensor perimetral con detección de humanos</li>
-          <li><i class="fas fa-check"></i> Soporte técnico prioritario MDP</li>
-          <li><i class="fas fa-check"></i> Planificación técnica y relevamiento previo</li>
-        </ul>
-        <a href="https://wa.me/5492235325483?text=Hola!%20Necesito%20un%20presupuesto%20para%20un%20Kit%20de%20Monitoreo%20Full%20de%208%20o%20más%20cámaras." class="btn-plan" target="_blank">
-          <i class="fab fa-whatsapp"></i> Solicitar Presupuesto
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN ACTUALIZADA: Módulos Oficiales de Facebook e Instagram Lado a Lado -->
-  <section id="nuestras-redes" class="contenedor">
-    <div class="section-title">
-      <h2>Nuestros Trabajos en Redes</h2>
-      <p>Seguinos y dale un vistazo a nuestras últimas novedades</p>
-    </div>
-    
-    <!-- Contenedor Flexbox/Grid para que queden emparejados -->
-    <div class="redes-box-container">
-      
-      <!-- Bloque Facebook -->
-      <div class="red-modulo">
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
+      <!-- SECCIÓN 1: CÁMARAS WI-FI -->
+      <div class="card-sistema" id="card-wifi">
+        <div class="sistema-header">
+          <div class="sistema-icono">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <div class="sistema-titulo">
+            <h2>Cámaras Wi-Fi</h2>
+            <span><i class="fas fa-check-circle"></i> Instalación y configuración incluida</span>
+          </div>
+        </div>
+        <p class="sistema-desc">
+          Ideales para instalar rápido sin cableado complejo. Se conectan a tu red Wi-Fi y las ves en vivo desde el celular con alertas de movimiento y visión nocturna.
+        </p>
         
-        <div class="fb-page" 
-          data-href="https://www.facebook.com/mdpcomputacion/" 
-          data-tabs="timeline" 
-          data-width="400" 
-          data-height="450" 
-          data-small-header="false" 
-          data-adapt-container-width="true" 
-          data-hide-cover="false" 
-          data-show-facepile="true">
-          <blockquote cite="https://www.facebook.com/mdpcomputacion/" class="fb-xfbml-parse-ignore">
-            <a href="https://www.facebook.com/mdpcomputacion/">MDP Computación</a>
-          </blockquote>
+        <div class="control-fila">
+          <label>Cantidad de cámaras Wi-Fi:</label>
+          <div class="contador-box">
+            <button type="button" class="btn-menos" onclick="cambiarWifi(-1)">-</button>
+            <span class="numero-cantidad" id="cant-wifi">0</span>
+            <button type="button" class="btn-mas" onclick="cambiarWifi(1)">+</button>
+          </div>
         </div>
+
+        <button type="button" class="btn-ir-formulario-card" onclick="irAlFormulario()">
+          Completar mis datos para el pedido <i class="fas fa-arrow-down"></i>
+        </button>
       </div>
 
-      <!-- Bloque Instagram (Utiliza el Embed estándar e interactivo de perfil de IG) -->
-      <div class="red-modulo">
-        <iframe src="https://www.instagram.com/mdpcomputacion/embed" width="100%" height="450" frameborder="0" scrolling="no" allowtransparency="true" style="border: none; border-radius: 8px; background: #fff;"></iframe>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto" class="contenedor contacto-section">
-    <div class="contacto-wrapper">
-      <div class="contacto-info">
-        <h2>¿Listo para proteger tu propiedad?</h2>
-        <p>Dejanos tus datos y te asesoramos sin cargo. También podés escribirnos directo por nuestras redes sociales.</p>
-        <div class="info-links">
-          <a href="mailto:mdpcomputacion@hotmail.com"><i class="fas fa-envelope"></i> mdpcomputacion@hotmail.com</a>
-          <a href="https://wa.me/5492235325483"><i class="fab fa-whatsapp"></i> 223 532-5483</a>
+      <!-- SECCIÓN 2: SISTEMA DVR CABLEADO -->
+      <div class="card-sistema" id="card-dvr">
+        <div class="sistema-header">
+          <div class="sistema-icono">
+            <i class="fas fa-video"></i>
+          </div>
+          <div class="sistema-titulo">
+            <h2>Sistema con DVR (Cableado)</h2>
+            <span><i class="fas fa-check-circle"></i> Instalación y materiales incluidos</span>
+          </div>
         </div>
-      </div>
-      
-      <div class="contacto-form">
-        <form action="https://formspree.io/f/moqbdakw" method="POST">
-          <div class="form-group">
-            <input type="text" name="nombre" placeholder="Tu nombre" required>
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Tu correo electrónico" required>
-          </div>
-          <div class="form-group">
-            <textarea name="mensaje" rows="4" placeholder="¿Cuántas cámaras estás necesitando y en qué zona estás?" required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">Enviar Solicitud</button>
-        </form>
-      </div>
-    </div>
-  </section>
+        <p class="sistema-desc">
+          Sistema profesional de grabación continua 24/7 con grabador central (DVR) y disco rígido. Máxima estabilidad para casas, comercios y consorcios.
+        </p>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2026 MDP Computación · Seguridad · Instalación de Cámaras</p>
-      <div class="social">
-        <a href="https://es-es.facebook.com/mdpcomputacion/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/mdpcomputacion/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/5492235325483" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <div class="control-fila">
+          <label for="canales-dvr">Capacidad del DVR:</label>
+          <select id="canales-dvr" class="selector-canales" onchange="actualizarResumen()">
+            <option value="4 Canales">DVR de 4 Canales</option>
+            <option value="8 Canales">DVR de 8 Canales</option>
+            <option value="16 Canales">DVR de 16 Canales</option>
+          </select>
+        </div>
+
+        <div class="control-fila">
+          <label>Cantidad de cámaras a instalar:</label>
+          <div class="contador-box">
+            <button type="button" class="btn-menos" onclick="cambiarDvr(-1)">-</button>
+            <span class="numero-cantidad" id="cant-dvr">0</span>
+            <button type="button" class="btn-mas" onclick="cambiarDvr(1)">+</button>
+          </div>
+        </div>
+
+        <button type="button" class="btn-ir-formulario-card" onclick="irAlFormulario()">
+          Completar mis datos para el pedido <i class="fas fa-arrow-down"></i>
+        </button>
       </div>
+
+    </section>
+
+    <!-- Columna Derecha: Datos y Envío -->
+    <aside class="panel-formulario" id="bloque-formulario">
+      <h3><i class="fas fa-clipboard-check" style="color: var(--amarillo);"></i> Datos del Pedido</h3>
+      <p class="subtitulo-form">Completá tus datos para coordinar presupuesto e instalación.</p>
+
+      <div class="resumen-seleccion" id="resumen-caja">
+        <strong>Tu selección actual:</strong>
+        <span id="texto-resumen">Todavía no seleccionaste cámaras (usá los botones + de arriba).</span>
+      </div>
+
+      <form onsubmit="enviarConsultaWhatsApp(event)">
+        <div class="campo">
+          <label for="nombre">Nombre y Apellido *</label>
+          <input type="text" id="nombre" placeholder="Ej: Martín Pérez" required>
+        </div>
+
+        <div class="campo">
+          <label for="direccion">Dirección o Zona (Mar del Plata) *</label>
+          <input type="text" id="direccion" placeholder="Ej: Zona Constitución / Centro / Puerto" required>
+        </div>
+
+        <div class="campo">
+          <label for="dias">Días disponibles *</label>
+          <select id="dias" required>
+            <option value="">Seleccioná días...</option>
+            <option value="Lunes a Viernes">Lunes a Viernes</option>
+            <option value="Sábados">Sábados</option>
+            <option value="Cualquier día (A coordinar)">Cualquier día (A coordinar)</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="horario">Horario disponible para instalar *</label>
+          <select id="horario" required>
+            <option value="">Seleccioná franja horaria...</option>
+            <option value="Por la mañana (08:30 a 12:30 hs)">Por la mañana (08:30 a 12:30 hs)</option>
+            <option value="Por la tarde (14:00 a 18:30 hs)">Por la tarde (14:00 a 18:30 hs)</option>
+            <option value="Horario corrido / Flexible">Horario corrido / Flexible</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="aclaracion">Aclaración (Interior / Exterior / Comentarios)</label>
+          <textarea id="aclaracion" rows="2" placeholder="Ej: Serían 2 cámaras para el frente y 1 para el patio..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-enviar-consulta">
+          <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> Enviar Consulta de Pedido
+        </button>
+      </form>
+    </aside>
+
+  </main>
+
+  <!-- Barra Flotante Inferior Exclusiva para Celulares -->
+  <div class="barra-flotante-movil" id="barra-movil">
+    <div class="barra-info-texto">
+      <strong id="barra-titulo">1 cámara seleccionada</strong>
+      <span>Paso siguiente: completá tus datos</span>
+    </div>
+    <button type="button" class="btn-completar-datos" onclick="irAlFormulario()">
+      Completar Datos <i class="fas fa-arrow-down"></i>
+    </button>
+  </div>
+
+  <!-- Sector Redes Sociales y Canal de WhatsApp -->
+  <footer class="redes-footer">
+    <h3>Seguí nuestros trabajos y promociones</h3>
+    <p>Mirá instalaciones reales en Mar del Plata y enterate de las novedades en nuestras redes:</p>
+    
+    <div class="redes-botones">
+      <a href="https://whatsapp.com/channel/0029Vb94Q3N90x2uqBEI8q00" target="_blank" class="btn-social btn-canal-wa">
+        <i class="fas fa-bullhorn"></i> Canal de WhatsApp
+      </a>
+      <a href="https://www.facebook.com/mdpcomputacion/" target="_blank" class="btn-social btn-fb">
+        <i class="fab fa-facebook-f"></i> MDP Computación
+      </a>
+      <a href="https://www.instagram.com/mdpcomputacion/" target="_blank" class="btn-social btn-ig">
+        <i class="fab fa-instagram"></i> @mdpcomputacion
+      </a>
+      <a href="https://wa.me/5492235325483" target="_blank" class="btn-social btn-wa-directo">
+        <i class="fab fa-whatsapp"></i> 223-5325483
+      </a>
+    </div>
+
+    <div class="copyright-texto">
+      &copy; 2026 MDP Computación · Seguridad — Mar del Plata, Buenos Aires
     </div>
   </footer>
 
-  <!-- Botón Flotante -->
-  <a href="https://wa.me/5492235325483" class="whatsapp-float" target="_blank" title="Escribinos por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <script>
+    let cantWifi = 0;
+    let cantDvr = 0;
+
+    function cambiarWifi(delta) {
+      cantWifi = Math.max(0, cantWifi + delta);
+      document.getElementById('cant-wifi').textContent = cantWifi;
+      
+      const card = document.getElementById('card-wifi');
+      if (cantWifi > 0) {
+        card.classList.add('activo');
+      } else {
+        card.classList.remove('activo');
+      }
+      actualizarResumen();
+    }
+
+    function cambiarDvr(delta) {
+      const canalesSelect = document.getElementById('canales-dvr').value;
+      const maxCanales = parseInt(canalesSelect);
+      
+      cantDvr = Math.max(0, cantDvr + delta);
+      
+      if (cantDvr > 4 && maxCanales === 4) {
+        document.getElementById('canales-dvr').value = '8 Canales';
+      } else if (cantDvr > 8 && maxCanales === 8) {
+        document.getElementById('canales-dvr').value = '16 Canales';
+      }
+
+      document.getElementById('cant-dvr').textContent = cantDvr;
+      
+      const card = document.getElementById('card-dvr');
+      if (cantDvr > 0) {
+        card.classList.add('activo');
+      } else {
+        card.classList.remove('activo');
+      }
+      actualizarResumen();
+    }
+
+    function actualizarResumen() {
+      const textoResumen = document.getElementById('texto-resumen');
+      const canalesDvr = document.getElementById('canales-dvr').value;
+      const barraMovil = document.getElementById('barra-movil');
+      const barraTitulo = document.getElementById('barra-titulo');
+      
+      let partes = [];
+      const totalCamaras = cantWifi + cantDvr;
+
+      if (cantWifi > 0) {
+        partes.push(`• ${cantWifi} Cámara(s) Wi-Fi (con instalación)`);
+      }
+      if (cantDvr > 0) {
+        partes.push(`• Sistema DVR ${canalesDvr} con ${cantDvr} Cámara(s) (con instalación)`);
+      }
+
+      if (partes.length === 0) {
+        textoResumen.innerHTML = 'Todavía no seleccionaste cámaras (usá los botones + de arriba).';
+        barraMovil.classList.remove('visible');
+      } else {
+        textoResumen.innerHTML = partes.join('<br>');
+        barraTitulo.textContent = totalCamaras === 1 
+          ? '1 cámara seleccionada' 
+          : `${totalCamaras} cámaras seleccionadas`;
+        barraMovil.classList.add('visible');
+      }
+    }
+
+    function irAlFormulario() {
+      const formulario = document.getElementById('bloque-formulario');
+      formulario.scrollIntoView({ behavior: 'smooth' });
+      // Enfoca el campo de nombre después de deslizar para que en celular se abra el teclado listo para escribir
+      setTimeout(() => {
+        document.getElementById('nombre').focus();
+      }, 600);
+    }
+
+    // Ocultar la barra flotante cuando el usuario ya llegó al formulario en el celular
+    window.addEventListener('scroll', () => {
+      const totalCamaras = cantWifi + cantDvr;
+      if (totalCamaras === 0) return;
+
+      const formulario = document.getElementById('bloque-formulario');
+      const barraMovil = document.getElementById('barra-movil');
+      const rect = formulario.getBoundingClientRect();
+
+      if (rect.top < window.innerHeight - 120) {
+        barraMovil.classList.remove('visible');
+      } else {
+        barraMovil.classList.add('visible');
+      }
+    });
+
+    function enviarConsultaWhatsApp(e) {
+      e.preventDefault();
+
+      if (cantWifi === 0 && cantDvr === 0) {
+        alert('Por favor, seleccioná al menos 1 cámara Wi-Fi o un sistema DVR antes de enviar la consulta.');
+        return;
+      }
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const direccion = document.getElementById('direccion').value.trim();
+      const dias = document.getElementById('dias').value;
+      const horario = document.getElementById('horario').value;
+      const aclaracion = document.getElementById('aclaracion').value.trim();
+      const canalesDvr = document.getElementById('canales-dvr').value;
+
+      let detalleEquipos = '';
+      if (cantWifi > 0) {
+        detalleEquipos += `▪️ *Cámaras Wi-Fi:* ${cantWifi} unidad(es) _(Instalación incluida)_\n`;
+      }
+      if (cantDvr > 0) {
+        detalleEquipos += `▪️ *Sistema DVR:* Equipo de *${canalesDvr}* + *${cantDvr} cámara(s)* _(Instalación incluida)_\n`;
+      }
+
+      let mensaje = `Hola *MDP Computación · Seguridad*! Envío una consulta de pedido:\n\n`;
+      mensaje += `*SISTEMA SOLICITADO:*\n${detalleEquipos}\n`;
+      mensaje += `*DATOS PARA COORDINAR:*\n`;
+      mensaje += `👤 *Nombre:* ${nombre}\n`;
+      mensaje += `📍 *Dirección / Zona:* ${direccion}\n`;
+      mensaje += `📅 *Días disponibles:* ${dias}\n`;
+      mensaje += `⏰ *Horario disponible:* ${horario}\n`;
+
+      if (aclaracion !== '') {
+        mensaje += `📝 *Aclaración:* ${aclaracion}\n`;
+      }
+
+      mensaje += `\nAguardo presupuesto y disponibilidad. ¡Gracias!`;
+
+      const telefono = '5492235325483';
+      const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+      window.open(url, '_blank');
+    }
+  </script>
 
 </body>
 </html>
